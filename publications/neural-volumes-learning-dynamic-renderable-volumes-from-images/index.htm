@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://research.fb.com/wp-content/themes/fb-research/images/gui/facebook.ico" />
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://research.fb.com/xmlrpc.php">
+<title>Neural Volumes: Learning Dynamic Renderable Volumes from Images - Facebook Research</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v12.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Neural Volumes: Learning Dynamic Renderable Volumes from Images - Facebook Research" />
+<meta property="og:description" content="To overcome memory limitations of voxel-based representations, we learn a dynamic irregular grid structure implemented with a warp field during ray-marching. This structure greatly improves the apparent resolution and reduces grid-like artifacts and jagged motion. Finally, we demonstrate how to incorporate surface-based representations into our volumetric-learning framework for applications where the highest resolution is required, using facial performance capture as a case in point." />
+<meta property="og:url" content="https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/" />
+<meta property="og:site_name" content="Facebook Research" />
+<meta property="article:publisher" content="http://facebook.com/academics" />
+<meta property="article:section" content="Computer Vision" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="To overcome memory limitations of voxel-based representations, we learn a dynamic irregular grid structure implemented with a warp field during ray-marching. This structure greatly improves the apparent resolution and reduces grid-like artifacts and jagged motion. Finally, we demonstrate how to incorporate surface-based representations into our volumetric-learning framework for applications where the highest resolution is required, using facial performance capture as a case in point." />
+<meta name="twitter:title" content="Neural Volumes: Learning Dynamic Renderable Volumes from Images - Facebook Research" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://research.fb.com/#organization","name":"Facebook Research","url":"https://research.fb.com/","sameAs":["http://facebook.com/academics"],"logo":{"@type":"ImageObject","@id":"https://research.fb.com/#logo","url":"https://research.fb.com/wp-content/uploads/2019/11/FB_logo.svg","caption":"Facebook Research"},"image":{"@id":"https://research.fb.com/#logo"}},{"@type":"WebSite","@id":"https://research.fb.com/#website","url":"https://research.fb.com/","name":"Facebook Research","description":"At Facebook, research permeates everything we do. We believe the most interesting research questions are derived from real world problems.","publisher":{"@id":"https://research.fb.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://research.fb.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/#webpage","url":"https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/","inLanguage":"en-US","name":"Neural Volumes: Learning Dynamic Renderable Volumes from Images - Facebook Research","isPartOf":{"@id":"https://research.fb.com/#website"},"datePublished":"2019-06-24T22:07:09+00:00","dateModified":"2019-06-24T22:07:09+00:00"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Facebook Research &raquo; Feed" href="https://research.fb.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Facebook Research &raquo; Comments Feed" href="https://research.fb.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/research.fb.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0' href='https://research.fb.com/_static/??-eJxtj8sSgjAMRX/IEnHBwMLxW0oboNrXNEGGv7cFXPhY5kxOci8sURiv7KyRQBGBNsTQ26Aewpo+ybQC8WqxcsZXeeEE2VDBM3qGaOfReCpo1DEVToVvRwo5wI/IE7r8cOhFQkKZ1ARP9DokGPKGkAtScPgx/A3w544kQt677MG/HTeLd+47cpS5aVddNuGYi3Jz17o5t23dNV39AhXQbNc=' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<script src='https://research.fb.com/wp-content/plugins/wp-gdpr-consent/dist/gdprconsent.js?ver=2.0.0' id='gdprconsent-js'></script>
+<script src='https://research.fb.com/wp-content/themes/fb-research/js/facebook.js?ver=20160926' id='fb-research-facebook-sdk-js'></script>
+<script src='https://research.fb.com/wp-content/themes/fb-research/js/ga-tag.js?ver=20161116' id='fb-research-ga-tag-js'></script>
+<link rel="https://api.w.org/" href="https://research.fb.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://research.fb.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://research.fb.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.6" />
+<link rel="alternate" type="application/json+oembed" href="https://research.fb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch.fb.com%2Fpublications%2Fneural-volumes-learning-dynamic-renderable-volumes-from-images%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://research.fb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch.fb.com%2Fpublications%2Fneural-volumes-learning-dynamic-renderable-volumes-from-images%2F&#038;format=xml" />
+<style type='text/css'>img#wpstats{display:none}</style><meta name="description" content="To overcome memory limitations of voxel-based representations, we learn a dynamic irregular grid structure implemented with a warp field during ray-marching. This structure greatly improves the apparent resolution and reduces grid-like artifacts and jagged motion. Finally, we demonstrate how to incorporate surface-based representations into our volumetric-learning framework for applications where the highest resolution is required, using facial performance capture as a case in point."><meta property="og:description" content="To overcome memory limitations of voxel-based representations, we learn a dynamic irregular grid structure implemented with a warp field during ray-marching. This structure greatly improves the apparent resolution and reduces grid-like artifacts and jagged motion. Finally, we demonstrate how to incorporate surface-based representations into our volumetric-learning framework for applications where the highest resolution is required, using facial performance capture as a case in point." /><meta property="og:title" content="Neural Volumes: Learning Dynamic Renderable Volumes from Images" /><meta property="og:image" content="" /><meta property="og:url" content="https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images" /><meta property="og:site_name" content="Facebook Research" /><meta property="og:type" content="website" /><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style></head>
+
+<body class="publication-template-default single single-publication postid-11606 group-blog">
+<a class="skip-link screen-reader-text" href="#content">Skip to Content</a>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSPSS3D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="page" class="page-wrap">
+
+	<header id="site-header" class="site-header" role="banner">
+		<div class="site-header__inner">
+			<a href="https://research.fb.com/" rel="home" class="site-header__logo">
+								<img src="https://research.fb.com/wp-content/themes/fb-research/images/branding/facebook-research-logo.svg" alt="Facebook Research">
+				
+							</a>
+
+			<button class="site-header__toggle" aria-controls="site-header__mobile-wrapper">
+				<span class="screen-reader-text">Toggle menu</span>
+			</button>
+
+			<div class="site-header__mobile-wrapper" id="site-header__mobile-wrapper">
+				<div class="site-header__search" id="site-header__search">
+					<form action="/" method="get" class="search-form" role="search">
+	<label for="search-input-5fe5ff7c7409b" class="screen-reader-text">Search</label>
+	<input type="search" placeholder="Search" name="s" id="search-input-5fe5ff7c7409b" value="" class="search-field" />
+	<button type="submit" class="search-submit">
+		<span class="screen-reader-text">Submit</span>
+		<i class="fa fa-search" aria-hidden="true"></i>
+	</button>
+</form>
+				</div>
+
+				<nav class="site-header__navigation" role="navigation" aria-label="Main Navigation" id="main-nav">
+					<ul id="primary-menu" class="site-header__menu"><li id="menu-item-13740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13740"><a href="https://research.fb.com/people/"><span>People</span></a></li>
+<li id="menu-item-13741" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13741 current-menu-item"><a href="https://research.fb.com/publications/"><span>Publications</span></a></li>
+<li id="menu-item-13908" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13908"><a href="https://research.fb.com/blog/"><span>Blog</span></a></li>
+<li id="menu-item-13743" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13743"><a href="https://research.fb.com/events/"><span>Events</span></a></li>
+<li id="menu-item-13883" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13883"><a href="https://research.fb.com/careers/"><span>Careers</span></a></li>
+</ul><ul id="secondary-menu" class="site-header__menu"><li id="menu-item-13746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-13746"><a href="https://research.fb.com/research-areas/"><span>Research</span></a>
+<button class='site-header__navigation-toggle' aria-expanded='false' aria-haspopup='true'><i class='fa fa-angle-down'></i><i class='fa fa-angle-up'></i><span class='screen-reader-text'>Show dropdown menu</span></button><ul class="sub-menu" aria-label='Submenu'>
+	<li id="menu-item-15172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15172"><a href="https://research.fb.com/research-areas/"><span>Research Areas</span></a></li>
+	<li id="menu-item-15171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15171"><a href="https://research.fb.com/data/"><span>Data</span></a></li>
+</ul>
+</li>
+<li id="menu-item-13747" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-13747"><a href="https://research.fb.com/programs/"><span>Outreach</span></a>
+<button class='site-header__navigation-toggle' aria-expanded='false' aria-haspopup='true'><i class='fa fa-angle-down'></i><i class='fa fa-angle-up'></i><span class='screen-reader-text'>Show dropdown menu</span></button><ul class="sub-menu" aria-label='Submenu'>
+	<li id="menu-item-13907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13907"><a href="https://research.fb.com/fellowship/"><span>Facebook Fellowship Program</span></a></li>
+	<li id="menu-item-13890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13890"><a href="https://research.fb.com/research-awards/"><span>Research Awards</span></a></li>
+	<li id="menu-item-13993" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13993"><a href="https://research.fb.com/research-award-recipients/"><span>Research Award Recipients</span></a></li>
+	<li id="menu-item-13751" class="menu-item menu-item-type-post_type menu-item-object-program menu-item-13751"><a href="https://research.fb.com/programs/research-collaborations/"><span>Research Collaborations</span></a></li>
+	<li id="menu-item-13932" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13932"><a href="https://research.fb.com/visiting-researchers-and-postdocs/"><span>Visiting Researchers &#038; Postdocs</span></a></li>
+</ul>
+</li>
+</ul>				</nav>
+			</div>
+
+			<button class="site-header__search-toggle" aria-controls="site-header__search">
+				<span class="screen-reader-text">Toggle search</span>
+			</button>
+
+		</div>
+	</header>
+	<main id="content" role="main">
+
+	<article id="post-11606" class="single-publication-wrapper post-11606 publication type-publication status-publish hentry category-augmented-reality-virtual-reality category-computer-vision category-machine-learning publication_year-2511">
+
+		<div class="post-header">
+			<div class="eyebrow">Publication</div>
+			<h1 class="is-style-xl">Neural Volumes: Learning Dynamic Renderable Volumes from Images</h1>
+
+										<p class="post-subheadline">SIGGRAPH</p>
+					</div>
+
+		<hr class="publication-divider">
+
+		<div class="container">
+			<div class="post-columns">
+
+				<div class="post-meta">
+					<p class="post-meta__date">July 31, 2019</p>
+					<p class="post-meta__author">By: Stephen Lombardi, Tomas Simon, Jason Saragih, Gabriel Schwartz, Andreas Lehrmann, Yaser Sheikh</p>
+				</div>
+
+				<div class="post-content">
+					<h2>Abstract</h2>
+
+					<p>Modeling and rendering of dynamic scenes is challenging, as natural scenes often contain complex phenomena such as thin structures, evolving topology, translucency, scattering, occlusion, and biological motion. Mesh-based reconstruction and tracking often fail in these cases, and other approaches (e.g., light field video) typically rely on constrained viewing conditions, which limit interactivity. We circumvent these difficulties by presenting a learning-based approach to representing dynamic objects inspired by the integral projection model used in tomographic imaging. The approach is supervised directly from 2D images in a multi-view capture setting and does not require explicit reconstruction or tracking of the object. Our method has two primary components: an encoder-decoder network that transforms input images into a 3D volume representation, and a differentiable ray-marching operation that enables end-to-end training. By virtue of its 3D representation, our construction extrapolates better to novel viewpoints compared to screen-space rendering techniques. The encoder-decoder architecture learns a latent representation of a dynamic scene that enables us to produce novel content sequences not seen during training. To overcome memory limitations of voxel-based representations, we learn a dynamic irregular grid structure implemented with a warp field during ray-marching. This structure greatly improves the apparent resolution and reduces grid-like artifacts and jagged motion. Finally, we demonstrate how to incorporate surface-based representations into our volumetric-learning framework for applications where the highest resolution is required, using facial performance capture as a case in point.</p>
+<div style="width: 640px;" class="wp-video"><!--[if lt IE 9]><script>document.createElement('video');</script><![endif]-->
+<video class="wp-video-shortcode" id="video-11606-1" width="640" height="360" preload="metadata" controls="controls"><source type="video/mp4" src="https://research.fb.com/wp-content/uploads/2019/06/10000000_1768327233270443_1745668970465198080_n.mp4?_=1" /><a href="https://research.fb.com/wp-content/uploads/2019/06/10000000_1768327233270443_1745668970465198080_n.mp4">https://research.fb.com/wp-content/uploads/2019/06/10000000_1768327233270443_1745668970465198080_n.mp4</a></video></div>
+
+					<div class="post-sidebar">
+																			<a href="https://research.fb.com/wp-content/uploads/2019/06/Neural-Volumes-Learning-Dynamic-Renderable-Volumes-from-Images.pdf" class="post-sidebar__cta post-sidebar__cta--publication fbr-button fbr-button--block">
+								Download Paper							</a>
+											</div>
+
+					<div class="post-footer">
+							<div class="post-tags">
+		<div class="post-tags__label">Areas</div>
+
+		<ul class="post-tags__list">
+												<li>
+						<a href="https://research.fb.com/cat/augmented-reality-virtual-reality/">
+							AR/VR						</a>
+					</li>
+																<li>
+						<a href="https://research.fb.com/cat/computer-vision/">
+							Computer Vision						</a>
+					</li>
+																<li>
+						<a href="https://research.fb.com/cat/machine-learning/">
+							Machine Learning						</a>
+					</li>
+									</ul>
+	</div>
+	
+						<div class="post-share">
+
+	<div class="post-share__label">Share</div>
+	<ul class="post-share__list">
+		<li>
+			<button class="copy-link" data-clipboard-text="https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/" aria-label="Copy the page link">
+				<svg width="21" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12.813 8.185a4.9 4.9 0 00-6.929 0l-4.45 4.455A4.899 4.899 0 004.898 21a4.868 4.868 0 003.46-1.428l3.675-3.674a.35.35 0 00-.248-.598h-.14a5.892 5.892 0 01-2.24-.434.35.35 0 00-.381.077l-2.642 2.645a2.1 2.1 0 01-2.971-2.97l4.468-4.466a2.1 2.1 0 012.968 0c.552.52 1.414.52 1.966 0a1.4 1.4 0 00.406-.889 1.4 1.4 0 00-.405-1.078z"/>
+					<path d="M19.563 1.435a4.9 4.9 0 00-6.929 0l-3.67 3.667a.35.35 0 00.255.599h.13a5.879 5.879 0 012.235.437.35.35 0 00.382-.077L14.6 3.43a2.1 2.1 0 112.97 2.97L14.29 9.68l-.028.031-1.148 1.14a2.1 2.1 0 01-2.967 0 1.435 1.435 0 00-1.967 0 1.4 1.4 0 000 1.974c.405.407.88.739 1.4.98.074.035.147.063.22.095.074.031.15.056.224.084.074.028.15.052.224.073l.207.056c.14.035.28.063.423.088.173.025.347.042.522.049h.265l.21-.025c.078-.003.158-.02.25-.02h.118l.241-.036.112-.02.203-.043h.039a4.899 4.899 0 002.271-1.288l4.455-4.454a4.9 4.9 0 000-6.929z"/>
+				</svg>
+				<span class="screen-reader-text">Copy Link</span>
+			</button>
+		</li>
+		<li>
+			<a href="http://www.twitter.com/share?url=https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/" target="_blank" rel="noopener noreferrer">
+				<svg width="23" height="19" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M22.6 2.937c-.828.363-1.709.6-2.61.701a4.517 4.517 0 002-2.473 9.13 9.13 0 01-2.886 1.088A4.509 4.509 0 0017.6 1.21 4.609 4.609 0 0015.793.84a4.67 4.67 0 00-3.22 1.34 4.44 4.44 0 00-1.327 3.157c.002.342.042.683.12 1.016a13.085 13.085 0 01-5.198-1.368A12.768 12.768 0 012.004 1.66a4.4 4.4 0 00-.499 3.256 4.497 4.497 0 001.91 2.715 4.521 4.521 0 01-2.029-.566.175.175 0 000 .072 4.43 4.43 0 001.048 2.828 4.633 4.633 0 002.642 1.552 4.723 4.723 0 01-1.273.117 5.34 5.34 0 01-.858 0c.294.88.859 1.65 1.618 2.205.76.555 1.676.869 2.625.897a9.241 9.241 0 01-5.645 1.916 10.837 10.837 0 01-1.079-.108 13.01 13.01 0 006.963 2.005c8.347 0 12.913-6.808 12.913-12.716v-.585a9.096 9.096 0 002.26-2.311z"/>
+					<path d="M22.6 2.937c-.828.363-1.709.6-2.61.701a4.517 4.517 0 002-2.473 9.13 9.13 0 01-2.886 1.088A4.509 4.509 0 0017.6 1.21 4.609 4.609 0 0015.793.84a4.67 4.67 0 00-3.22 1.34 4.44 4.44 0 00-1.327 3.157c.002.342.042.683.12 1.016a13.085 13.085 0 01-5.198-1.368A12.768 12.768 0 012.004 1.66a4.4 4.4 0 00-.499 3.256 4.497 4.497 0 001.91 2.715 4.521 4.521 0 01-2.029-.566.175.175 0 000 .072 4.43 4.43 0 001.048 2.828 4.633 4.633 0 002.642 1.552 4.723 4.723 0 01-1.273.117 5.34 5.34 0 01-.858 0c.294.88.859 1.65 1.618 2.205.76.555 1.676.869 2.625.897a9.241 9.241 0 01-5.645 1.916 10.837 10.837 0 01-1.079-.108 13.01 13.01 0 006.963 2.005c8.347 0 12.913-6.808 12.913-12.716v-.585a9.096 9.096 0 002.26-2.311z"/>
+				</svg>
+				<span class="screen-reader-text">Share in Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=https://research.fb.com/publications/neural-volumes-learning-dynamic-renderable-volumes-from-images/" target="_blank" rel="noopener noreferrer">
+				<svg width="11" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M7.465.167c-2.646 0-4.457 1.686-4.457 4.756v2.656H.018v3.592h2.99v9.234h3.564V11.17h2.982l.451-3.592H6.572V5.277c0-1.037.287-1.737 1.729-1.737h1.835V.31A23.993 23.993 0 007.465.167z"/>
+				</svg>
+				<span class="screen-reader-text">Share in Facebook</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+					</div>
+				</div>
+
+				<div class="post-meta">
+					<!-- keep this for spacing -->
+				</div>
+			</div>
+		</div>
+
+		
+	<div class="decorative-background decorative-background--light">
+
+		<section class="latest-news">
+			<div class="section__header">
+				<h2 class="section__title">Related Publications</h2>
+
+									<a href="/publications" class="cta-link">
+						All Publications					</a>
+							</div>
+			<div class="latest-news__grid latest-news__grid--quad">
+
+								<div class="news-item">
+						<div class="news-item__content">
+							<h3 class="news-item__title">
+								<a
+									href="
+									https://research.fb.com/publications/continuous-surface-embeddings/									"
+									class="news-item__link"
+																	>Continuous Surface Embeddings</a>
+							</h3>
+							<div class="news-item__excerpt">
+								<p>Natalia Neverova, David Novotny, Vasil Khalidov, Marc Szafraniec, Patrick Labatut, Andrea Vedaldi</p>
+							</div>
+							<p class="news-item__date">
+								NeurIPS - 								December 1, 2020							</p>
+						</div>
+					</div>
+									<div class="news-item">
+						<div class="news-item__content">
+							<h3 class="news-item__title">
+								<a
+									href="
+									https://research.fb.com/publications/adversarial-attacks-on-linear-contextual-bandits/									"
+									class="news-item__link"
+																	>Adversarial Attacks on Linear Contextual Bandits</a>
+							</h3>
+							<div class="news-item__excerpt">
+								<p>Evrard Garcelon, Baptiste Roziere, Laurent Meunier, Jean Tarbouriech, Olivier Teytaud, Alessandro Lazaric, Matteo Pirotta</p>
+							</div>
+							<p class="news-item__date">
+								NeurIPS - 								November 30, 2020							</p>
+						</div>
+					</div>
+									<div class="news-item">
+						<div class="news-item__content">
+							<h3 class="news-item__title">
+								<a
+									href="
+									https://research.fb.com/publications/efficient-nonmyopic-bayesian-optimization-via-one-shot-multi-step-trees/									"
+									class="news-item__link"
+																	>Efficient Nonmyopic Bayesian Optimization via One-Shot Multi-Step Trees</a>
+							</h3>
+							<div class="news-item__excerpt">
+								<p>Shali Jiang, Daniel Jiang, Max Balandat, Brian Karrer, Jacob R. Gardner, Roman Garnett</p>
+							</div>
+							<p class="news-item__date">
+								NeurIPS - 								December 7, 2020							</p>
+						</div>
+					</div>
+									<div class="news-item">
+						<div class="news-item__content">
+							<h3 class="news-item__title">
+								<a
+									href="
+									https://research.fb.com/publications/ultrasound-for-gaze-estimation/									"
+									class="news-item__link"
+																	>Ultrasound for gaze estimation</a>
+							</h3>
+							<div class="news-item__excerpt">
+								<p>Andre Golard, Sachin Talathi</p>
+							</div>
+							<p class="news-item__date">
+								ICPR - 								December 1, 2020							</p>
+						</div>
+					</div>
+							</div>
+
+							<div class="section__footer">
+					<a href="/publications" class="cta-link">
+						All Publications					</a>
+				</div>
+					</section>
+
+	</div>
+	
+	</article><!-- #post-## -->
+
+	
+</main> <!-- #content" -->
+
+</div><!-- #page -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-footer__inner">
+		<div class="site-footer__top">
+			<div>
+				<h2 class="site-footer__heading">Additional Resources</h2><div class="menu-additional-resources-container"><ul id="menu-additional-resources" class="site-footer__top-menu"><li id="menu-item-13754" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13754"><a href="https://research.fb.com/videos/">Videos</a></li>
+<li id="menu-item-13755" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13755"><a href="https://ai.facebook.com/tools">Downloads &#038; Projects</a></li>
+<li id="menu-item-14235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14235"><a href="https://research.fb.com/visiting-researchers-and-postdocs/">Visiting Researchers &#038; Postdocs</a></li>
+</ul></div>			</div>
+			<div>
+				<h2 class="site-footer__heading">Visit Our Other Blogs</h2><div class="menu-visit-our-other-blogs-container"><ul id="menu-visit-our-other-blogs" class="site-footer__top-menu"><li id="menu-item-13759" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13759"><a href="http://engineering.fb.com">Engineering</a></li>
+<li id="menu-item-13760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13760"><a href="http://ai.fb.com">Facebook AI</a></li>
+<li id="menu-item-13761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13761"><a href="http://oculus.com/blog">Oculus</a></li>
+<li id="menu-item-13762" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13762"><a href="https://tech.fb.com/">Tech@</a></li>
+</ul></div>			</div>
+			<div class="site-footer__search" id="site-footer__search">
+				<form action="/" method="get" class="search-form" role="search">
+	<label for="search-input-5fe5ff7c883fd" class="screen-reader-text">Search</label>
+	<input type="search" placeholder="Search" name="s" id="search-input-5fe5ff7c883fd" value="" class="search-field" />
+	<button type="submit" class="search-submit">
+		<span class="screen-reader-text">Submit</span>
+		<i class="fa fa-search" aria-hidden="true"></i>
+	</button>
+</form>
+			</div>
+			<div class="site-footer__social">
+				<div class="menu-footer-social-container"><ul id="menu-footer-social" class="site-footer__top-menu"><li id="menu-item-13758" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13758"><a href="https://www.facebook.com/academics/"><span class="screen-reader-text">Facebook</span></a></li>
+</ul></div>			</div>
+		</div>
+		<div class="site-footer__bottom">
+			<div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="site-footer__bottom-menu"><li id="menu-item-3178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3178"><a target="_blank" rel="noopener" href="https://research.fb.com/feed/">RSS Feed</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="https://www.facebook.com/facebook">About</a></li>
+<li id="menu-item-2611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2611"><a href="https://www.facebook.com/careers/university/">Careers</a></li>
+<li id="menu-item-57" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57"><a href="https://www.facebook.com/about/privacy">Privacy</a></li>
+<li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58"><a href="https://www.facebook.com/help/cookies">Cookies</a></li>
+<li id="menu-item-59" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59"><a href="https://www.facebook.com/policies">Terms</a></li>
+<li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60"><a href="https://www.facebook.com/help">Help</a></li>
+</ul></div>			<p>
+				Facebook &copy; 2020			</p>
+		</div>
+	</div>
+</footer><!-- #colophon -->
+
+  <div class="gdprconsent-container" id="GDPRConsentBar">
+    <div class="gdprconsent-wrapper">
+      <div class="gdprconsent-content">
+        <p>To help personalize content, tailor and measure ads, and provide a safer experience, we use cookies. By clicking or navigating the site, you agree to allow our collection of information on and off Facebook through cookies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a></p>
+                <div class="gdprconsent-button">
+          <button type="button" data-gdpr-accept>I Agree</button>
+        </div>
+              </div>
+    </div>
+  </div>
+  <link rel='stylesheet' id='all-css-0' href='https://research.fb.com/_static/??-eJzTLy/QzcxLzilNSS3WzyrWz01NyUxMzUnNTc0rQeEU5CRWphbp5qSmJyZX6uVm5uklFxfr6OPTDpRD5sM02efaGpoZmJuYmRkZmQAARLYu4Q==' type='text/css' media='all' />
+<script id='mediaelement-js-extra'>
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+</script>
+<script src='https://research.fb.com/wp-content/themes/fb-research/assets/js/vendor/aos.min.js?ver=2.3.1' id='fb-research-aos-js-js'></script>
+<script src='https://research.fb.com/wp-content/themes/fb-research/assets/js/vendor/tiny-slider.min.js?ver=20200306' id='fb-research-tiny-slider-js'></script>
+<script src='https://research.fb.com/wp-content/themes/fb-research/assets/js/frontend.min.js?ver=20200306' id='fb-research-redesign-script-js'></script>
+<script src='https://research.fb.com/wp-includes/js/wp-embed.min.js?ver=5.6' id='wp-embed-js'></script>
+<script src='https://research.fb.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script src='https://research.fb.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script id='mediaelement-core-js-before'>
+var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script src='https://research.fb.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.16' id='mediaelement-core-js'></script>
+<script src='https://research.fb.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=5.6' id='mediaelement-migrate-js'></script>
+<script src='https://research.fb.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=5.6' id='wp-mediaelement-js'></script>
+<script src='https://research.fb.com/wp-includes/js/mediaelement/renderers/vimeo.min.js?ver=4.2.16' id='mediaelement-vimeo-js'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-202052.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:9.2.1',blog:'175895106',post:'11606',tz:'-8',srv:'research.fb.com'} ]);
+	_stq.push([ 'clickTrackerInit', '175895106', '11606' ]);
+</script>
+
+</body>
+</html>

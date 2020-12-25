@@ -1,0 +1,351 @@
+
+<!doctype html>
+
+<!--[if lt IE 7]><html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html lang="en-US" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html lang="en-US" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"><!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>Computational Imaging  Automatic Integration</title>
+
+				<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+				<link rel="apple-touch-icon" href="http://www.computationalimaging.org/wp-content/themes/sci/library/images/apple-touch-icon.png">
+		<link rel="icon" href="http://www.computationalimaging.org/wp-content/themes/sci/favicon.png">
+		<!--[if IE]>
+			<link rel="shortcut icon" href="http://www.computationalimaging.org/wp-content/themes/sci/favicon.ico">
+		<![endif]-->
+				<meta name="msapplication-TileColor" content="#f01d4f">
+		<meta name="msapplication-TileImage" content="http://www.computationalimaging.org/wp-content/themes/sci/library/images/win8-tile-icon.png">
+            <meta name="theme-color" content="#121212">
+
+		<link rel="pingback" href="http://www.computationalimaging.org/xmlrpc.php">
+
+				<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Computational Imaging &raquo; Feed" href="http://www.computationalimaging.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Computational Imaging &raquo; Comments Feed" href="http://www.computationalimaging.org/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Computational Imaging &raquo; Automatic Integration Comments Feed" href="http://www.computationalimaging.org/publications/automatic-integration/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.computationalimaging.org\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='http://www.computationalimaging.org/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='googleFonts-osqc-css'  href='http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%7CQuattrocento%3A400%2C700' type='text/css' media='all' />
+<link rel='stylesheet' id='bones-stylesheet-css'  href='http://www.computationalimaging.org/wp-content/themes/sci/library/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='options-generated-styles-css'  href='http://www.computationalimaging.org/wp-content/themes/sci/theme-options/options-generated-style.css' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='bones-ie-only-css'  href='http://www.computationalimaging.org/wp-content/themes/sci/library/css/ie.css' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://www.computationalimaging.org/wp-includes/js/jquery/jquery.js' id='jquery-core-js'></script>
+<script type='text/javascript' src='http://www.computationalimaging.org/wp-content/themes/sci/library/js/libs/modernizr.custom.min.js' id='bones-modernizr-js'></script>
+<link rel="https://api.w.org/" href="http://www.computationalimaging.org/wp-json/" /><link rel="canonical" href="http://www.computationalimaging.org/publications/automatic-integration/" />
+<link rel='shortlink' href='http://www.computationalimaging.org/?p=4624' />
+<link rel="alternate" type="application/json+oembed" href="http://www.computationalimaging.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.computationalimaging.org%2Fpublications%2Fautomatic-integration%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.computationalimaging.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.computationalimaging.org%2Fpublications%2Fautomatic-integration%2F&#038;format=xml" />
+		
+					</head>
+
+	<body class="publications-template-default single single-publications postid-4624" itemscope itemtype="http://schema.org/WebPage">
+	
+		<!-- Include SVG icon set -->
+		<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="scicon-menu-open" viewBox="0 0 1024 1024">
+	<title>menu-open</title>
+	<path class="path1" d="M0 215.040h1024v25.6h-1024v-25.6z"></path>
+	<path class="path2" d="M0 496.64h1024v25.6h-1024v-25.6z"></path>
+	<path class="path3" d="M0 783.36h1024v25.6h-1024v-25.6z"></path>
+</symbol>
+<symbol id="scicon-menu-close" viewBox="0 0 1024 1024">
+	<title>menu-close</title>
+	<path class="path1" d="M149.96 178.928l28.963-28.963 695.108 695.108-28.963 28.963-695.108-695.108z"></path>
+	<path class="path2" d="M874.040 178.928l-695.108 695.108-28.963-28.963 695.108-695.108 28.963 28.963z"></path>
+</symbol>
+<symbol id="scicon-info" viewBox="0 0 1024 1024">
+	<title>info</title>
+	<path class="path1" d="M568.32 660.48c-25.6 25.6-40.96 35.84-51.2 35.84s-10.24-5.12-10.24-20.48c5.12-40.96 35.84-168.96 46.080-215.040 10.24-40.96 5.12-61.44-5.12-61.44-20.48 0-71.68 35.84-107.52 71.68 0 5.12-5.12 15.36-5.12 20.48 0 0 0 5.12 0 5.12 25.6-15.36 40.96-25.6 51.2-25.6 5.12 0 5.12 5.12 5.12 20.48-10.24 51.2-25.6 133.12-40.96 194.56s-5.12 81.92 10.24 81.92c20.48 0 66.56-25.6 107.52-76.8 5.12-5.12 5.12-20.48 0-30.72 5.12 5.12 0 0 0 0z"></path>
+	<path class="path2" d="M563.2 256c-15.36 0-30.72 5.12-40.96 15.36-5.12 5.12-5.12 15.36-10.24 25.6 0 15.36 5.12 25.6 15.36 30.72 5.12 5.12 30.72 0 40.96-5.12s20.48-20.48 20.48-35.84c0-5.12 0-20.48-5.12-25.6 0 0-10.24-5.12-20.48-5.12z"></path>
+	<path class="path3" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512c281.6 0 512-230.4 512-512s-230.4-512-512-512zM512 942.080c-240.64 0-430.080-194.56-430.080-430.080s189.44-430.080 430.080-430.080c240.64 0 430.080 194.56 430.080 430.080s-189.44 430.080-430.080 430.080z"></path>
+</symbol>
+<symbol id="scicon-arrow-down" viewBox="0 0 1024 1024">
+	<title>arrow-down</title>
+	<path class="path1" d="M512 721.92l-465.92-465.92h-46.080l512 512 512-512h-46.080z"></path>
+</symbol>
+<symbol id="scicon-arrow-up" viewBox="0 0 1024 1024">
+	<title>arrow-up</title>
+	<path class="path1" d="M512 302.080l-465.92 465.92h-46.080l512-512 512 512h-46.080z"></path>
+</symbol>
+<symbol id="scicon-facebook" viewBox="0 0 1024 1024">
+	<title>facebook</title>
+	<path class="path1" d="M727.040 353.28h-179.2v-128c0-40.96 40.96-51.2 61.44-51.2s112.64 0 112.64 0v-174.080h-133.12c-174.080 0-215.040 133.12-215.040 215.040v138.24h-133.12v179.2h133.12c0 230.4 0 486.4 0 486.4h179.2c0 0 0-261.12 0-486.4h148.48l25.6-179.2z"></path>
+</symbol>
+<symbol id="scicon-twitter" viewBox="0 0 1024 1024">
+	<title>twitter</title>
+	<path class="path1" d="M1024 174.080c-15.36 10.24-66.56 30.72-117.76 35.84 30.72-20.48 76.8-76.8 87.040-122.88-30.72 20.48-97.28 51.2-133.12 51.2v0c-40.96-40.96-92.16-71.68-153.6-71.68-117.76 0-209.92 102.4-209.92 225.28 0 15.36 0 35.84 5.12 51.2v0c-153.6-5.12-343.040-92.16-445.44-235.52-61.44 117.76-10.24 250.88 66.56 296.96-25.6 5.12-71.68 0-92.16-25.6 0 76.8 35.84 184.32 163.84 220.16-25.6 20.48-71.68 15.36-92.16 10.24 5.12 66.56 92.16 153.6 189.44 153.6-35.84 40.96-148.48 117.76-291.84 92.16 97.28 61.44 209.92 102.4 332.8 102.4 343.040 0 604.16-296.96 588.8-665.6 0 0 0 0 0 0s0 0 0-5.12c0 0 0 0 0-5.12 30.72-15.36 71.68-56.32 102.4-107.52z"></path>
+</symbol>
+<symbol id="scicon-linkedin" viewBox="0 0 1024 1024">
+	<title>linkedin</title>
+	<path class="path1" d="M0 1024h189.44v-768h-189.44v768zM768 256c-163.84 5.12-245.76 122.88-256 128v-128h-189.44v768h189.44v-445.44c0-15.36 40.96-148.48 189.44-128 81.92 5.12 122.88 112.64 128 128v445.44h189.44v-532.48c0-76.8-40.96-235.52-250.88-235.52zM97.28 0c-51.2 0-97.28 40.96-97.28 97.28 0 51.2 40.96 97.28 97.28 97.28 51.2 0 97.28-40.96 97.28-97.28s-46.080-97.28-97.28-97.28z"></path>
+</symbol>
+<symbol id="scicon-email" viewBox="0 0 1024 1024">
+	<title>email</title>
+	<path class="path1" d="M752.64 281.6c0-5.12 0-10.24 0-10.24 0-35.84-20.48-51.2-66.56-51.2-20.48 0-35.84 5.12-40.96 10.24s-10.24 20.48-15.36 40.96c-15.36-25.6-35.84-40.96-51.2-46.080-15.36-10.24-40.96-15.36-66.56-15.36-76.8 0-138.24 35.84-194.56 112.64-51.2 71.68-76.8 143.36-76.8 225.28-5.12 66.56 15.36 117.76 46.080 168.96 35.84 51.2 81.92 76.8 143.36 76.8 51.2 0 97.28-20.48 143.36-56.32 20.48 35.84 56.32 56.32 107.52 56.32 97.28 0 179.2-40.96 245.76-122.88 66.56-76.8 97.28-163.84 97.28-261.12 0-117.76-51.2-220.16-148.48-296.96-92.16-76.8-199.68-112.64-322.56-112.64-153.6 0-286.72 51.2-394.24 148.48-102.4 102.4-158.72 230.4-158.72 389.12s56.32 286.72 168.96 368.64c102.4 76.8 230.4 117.76 394.24 117.76 71.68 0 138.24-10.24 204.8-30.72 71.68-25.6 133.12-56.32 179.2-102.4 15.36-15.36 30.72-30.72 40.96-51.2 15.36-25.6 25.6-46.080 25.6-61.44 0-10.24-5.12-20.48-10.24-30.72-10.24-10.24-20.48-15.36-30.72-15.36-20.48 0-40.96 5.12-56.32 20.48-25.6 25.6-40.96 46.080-56.32 61.44-81.92 71.68-179.2 102.4-296.96 102.4-128 0-230.4-30.72-307.2-92.16-81.92-66.56-128-168.96-128-291.84s40.96-225.28 117.76-312.32c81.92-81.92 179.2-122.88 302.080-122.88 97.28 0 174.080 25.6 235.52 81.92 66.56 56.32 102.4 133.12 102.4 230.4 0 51.2-10.24 97.28-25.6 138.24-20.48 46.080-46.080 87.040-81.92 112.64-25.6 20.48-46.080 30.72-66.56 30.72-15.36 0-25.6-10.24-25.6-25.6 0-5.12 5.12-35.84 15.36-92.16l51.2-291.84zM558.080 568.32c-30.72 87.040-61.44 128-97.28 128-51.2 0-76.8-30.72-76.8-97.28 0-51.2 15.36-107.52 46.080-174.080 30.72-81.92 71.68-117.76 112.64-117.76 20.48 0 30.72 10.24 40.96 30.72 5.12 15.36 10.24 35.84 10.24 56.32 5.12 40.96-10.24 97.28-35.84 174.080z"></path>
+</symbol>
+<symbol id="scicon-phone" viewBox="0 0 1024 1024">
+	<title>phone</title>
+	<path class="path1" d="M798.72 1024c20.48 0 225.28-153.6 225.28-168.96 0-20.48-230.4-163.84-250.88-163.84s-87.040 81.92-102.4 87.040c-20.48 10.24-128 5.12-256-117.76-122.88-122.88-168.96-266.24-168.96-291.84 0-20.48 102.4-92.16 107.52-107.52 5.12-20.48-133.12-261.12-158.72-261.12-20.48 0-194.56 209.92-194.56 225.28s15.36 240.64 302.080 527.36c281.6 286.72 471.040 271.36 496.64 271.36z"></path>
+</symbol>
+<symbol id="scicon-search" viewBox="0 0 1024 1024">
+	<title>search</title>
+	<path class="path1" d="M1003.52 896l-307.2-291.84c46.080-61.44 71.68-133.12 71.68-209.92 0-199.68-174.080-363.52-384-363.52s-384 158.72-384 358.4c0 199.68 174.080 363.52 384 363.52 81.92 0 158.72-25.6 220.16-66.56l307.2 291.84c25.6 25.6 66.56 25.6 92.16 0 25.6-20.48 25.6-61.44 0-81.92zM604.16 512c-20.48 35.84-51.2 66.56-92.16 87.040-35.84 20.48-81.92 35.84-128 35.84-143.36 0-256-107.52-256-240.64s112.64-240.64 256-240.64 256 107.52 256 240.64c0 40.96-15.36 81.92-35.84 117.76z"></path>
+</symbol>
+</defs>
+</svg>
+
+		<div id="container">
+
+			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+				<div id="inner-header" class="wrap-max cf">
+
+										<div id="logo" class="img" itemscope itemtype="http://schema.org/Organization"><a href="http://www.computationalimaging.org" rel="nofollow"><img src="http://www.computationalimaging.org/wp-content/themes/sci/library/images/sci-logo.svg" alt="SCI Logo" /></a></div>
+
+										
+					<a href="#" class="mob-nav-trig">
+						<svg class="scicon scicon-menu-open"><use xlink:href="#scicon-menu-open"></use></svg>
+						<svg class="scicon scicon-menu-close"><use xlink:href="#scicon-menu-close"></use></svg>
+					</a>
+					
+					<nav id="main-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<ul id="menu-primary-menu" class="nav top-nav cf"><li id="menu-item-692" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-692"><a href="http://www.computationalimaging.org/research-overview/">Research Overview</a></li>
+<li id="menu-item-731" class="menu-team menu-item menu-item-type-post_type menu-item-object-page menu-item-731"><a href="http://www.computationalimaging.org/team/">Team</a></li>
+<li id="menu-item-730" class="menu-pub menu-item menu-item-type-post_type menu-item-object-page menu-item-730"><a href="http://www.computationalimaging.org/publications/">Publications</a></li>
+<li id="menu-item-732" class="menu-teach menu-item menu-item-type-post_type menu-item-object-page menu-item-732"><a href="http://www.computationalimaging.org/teaching/">Teaching</a></li>
+</ul>
+					</nav>
+
+				</div>
+
+			</header>
+
+<div id="content" class="wrap-full">
+
+	<div id="inner-content" class="wrap cf">
+
+		<main id="main" class="col-12 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+
+							<h1 class="page-title">Automatic Integration</h1>
+
+									<p class="author">David B. Lindell*, Julien N.P. Martel*, Gordon Wetzstein</p>
+				
+				<div class="tabular-row">
+					<div class="tabular-col-6">
+						<section class="pub-section">
+							<p>A new framework to integrate signals with implicit neural representations and its application to volume rendering.</p>
+						</section>
+															<section class="pub-video-section"> 										<div class="video-wrap"><iframe width="560" height="315" src="https://www.youtube.com/embed/GYxFYbih0PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
+									</section> 									<section class="pub-video-section"> 
+									</section> 
+														<section class="pub-section entry-content">
+									<h2>ABSTRACT</h2>
+<p>Numerical integration is a foundational technique in scientific computing and is at the core of many computer vision applications. Among these applications, implicit neural volume rendering has recently been proposed as a new paradigm for view synthesis, achieving photorealistic image quality. However, a fundamental obstacle to making these methods practical is the extreme computational and memory requirements caused by the required volume integrations along the rendered rays during training and inference. Millions of rays, each requiring hundreds of forward passes through a neural network are needed to approximate those integrations with Monte Carlo sampling. Here, we propose automatic integration, a new framework for learning efficient, closed-form solutions to integrals using implicit neural representation networks. For training, we instantiate the computational graph corresponding to the derivative of the implicit neural representation. The graph is fitted to the signal to integrate. After optimization, we reassemble the graph to obtain a network that represents the antiderivative. By the fundamental theorem of calculus, this enables the calculation of any definite integral in two evaluations of the network. Using this approach, we demonstrate a greater than 10× improvement in computation requirements, enabling fast neural volume rendering.</p>
+								</section> 
+														<section class="pub-section entry-content">
+									<h2>Results</h2>
+<table style="padding: 2px 2px 0px 0px;">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_tomo.png"><img loading="lazy" class="alignnone size-full wp-image-4496" src="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_tomo.png" alt="" width="852" height="900" /></a></td>
+</tr>
+<tr>
+<td><strong><b>An example of AutoInt for compressive sensing computed tomography. </b></strong>Left: illustration of the parameterization. Center: sinograms computed with the integral networks using different nonlinear activation functions. The ground truth (GT) sinogram is subsampled in angle by 4× (top), 8× (middle), and 16× (bottom). The optimized networks are used to interpolate the missing measurements. Using the Swish activation performs best in these experiments. Right: 1D scanlines of the sinogram centers shows the interpolation behavior of each method for each subsampling level.<strong><br />
+</strong></td>
+</tr>
+</tbody>
+</table>
+<table style="padding: 2px 2px 0px 0px;">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_lego.mp4"><br />
+<video style="width: 100%;" autoplay="autoplay" loop="loop" muted="" width="250" height="250"><source src="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_lego.mp4" type="video/mp4" /></video></a></td>
+</tr>
+<tr>
+<td><b><strong>Results of volumetric rendering on the NerF synthetic dataset.</strong></b></td>
+</tr>
+</tbody>
+</table>
+<table style="padding: 2px 2px 0px 0px;">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_hotdog.mp4"><br />
+<video style="width: 100%;" autoplay="autoplay" loop="loop" muted="" width="250" height="250"><source src="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_hotdog.mp4" /></video></a></td>
+</tr>
+<tr>
+<td><b><strong>Results of volumetric rendering on the NerF synthetic dataset.</strong></b></td>
+</tr>
+</tbody>
+</table>
+<table style="padding: 2px 2px 0px 0px;">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_real.mp4"><br />
+<video style="width: 100%;" autoplay="autoplay" loop="loop" muted="" width="250" height="250"><source src="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_real.mp4" type="video/mp4" /></video></a></td>
+</tr>
+<tr>
+<td><b><strong>Results of volumetric rendering on real captured data.</strong></b></td>
+</tr>
+</tbody>
+</table>
+<h2>FILES</h2>
+<ul>
+<li>Technical paper (<a href="http://arxiv.org/abs/2012.01714" target="_blank" rel="noopener">link to arxiv</a>)</li>
+<li>Code website (link to code)</li>
+</ul>
+<h2>CITATION</h2>
+<p>D. B. Lindell, J. N. P. Martel, G. Wetzstein, AutoInt: Automatic Integration for Fast Neural Volume Rendering (arXiv), 2020</p>
+								</section> 
+
+
+					</div>
+
+
+					<div class="tabular-col-6 hm">
+
+						<section class="pub-aside-section">
+
+																<section class="pub-section entry-content">
+										<table style="padding: 2px 2px 0px 0px;">
+<tbody>
+<tr>
+<td>
+<div class="img"><img src="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_framework.png" /></div>
+</td>
+</tr>
+<tr>
+<td><strong>The AutoInt framework.</strong> After (1) defining an integral network<br />
+architecture, (2) AutoInt builds the corresponding grad network,<br />
+which is (3) optimized to represent a function. (4) Definite in-<br />
+tegrals can then be computed by evaluating the integral network,<br />
+which shares parameters with its grad network.</td>
+</tr>
+</tbody>
+</table>
+									</section> 									<section class="pub-section entry-content">
+										<table style="padding: 2px 2px 0px 0px;">
+<tbody>
+<tr>
+<td>
+<div class="img"><img src="http://www.computationalimaging.org/wp-content/uploads/2020/12/autoint_rendering_v.png" /></div>
+</td>
+</tr>
+<tr>
+<td><strong>Volume rendering pipeline.</strong> During training, the grad networks representing volume density σ and color c are optimized for a<br />
+given set of multi-view images (top left). For inference, the grad networks’ parameters are reassembled to form the integral networks,<br />
+which represent antiderivatives that can be efficiently evaluated to calculate ray integrals through the volume (bottom left). A sampling<br />
+network predicts the locations of piecewise sections used for evaluating the definite integrals (right).</td>
+</tr>
+</tbody>
+</table>
+									</section> 									<section class="pub-section entry-content">
+										<h2>Related Projects</h2>
+<p>You may also be interested in related projects focusing on neural scene representations and rendering:</p>
+<ul>
+<li>Chan et al. 2020 pi-GAN. arxiv (<a href="http://www.computationalimaging.org/publications/pi-gan/" target="_blank" rel="noopener">link</a>)</li>
+<li>Lindell et al. Automatic Integration for Fast Neural Rendering. axiv (<a href="http://www.computationalimaging.org/publications/automatic-integration/" target="_blank" rel="noopener">link</a>)</li>
+<li>Sitzmann et al. Implicit Neural Representations with Periodic Activation Functions. NeurIPS 2020 (<a href="http://www.computationalimaging.org/publications/siren/" target="_blank" rel="noopener">link</a>)</li>
+<li>Sitzmann et al. MetaSDF. NeurIPS 2020 (<a href="http://www.computationalimaging.org/publications/metasdf/" target="_blank" rel="noopener">link</a>)</li>
+<li>Sitzmann et al. Scene Representation Networks. NeurIPS 2019 (<a href="http://www.computationalimaging.org/publications/scene-representation-networks-continuous-3d-structure-aware-neural-scene-representations-arxiv-2019/" target="_blank" rel="noopener">link</a>)</li>
+<li>Sitzmann et al. Deep Voxels. CVPR 2019 (<a href="http://www.computationalimaging.org/publications/deepvoxels-learning-persistent-3d-feature-embeddings/" target="_blank" rel="noopener">link</a>)</li>
+</ul>
+									</section> 
+													</section>
+
+					</div>
+				</div>
+
+			
+			
+		</main>
+
+
+	</div>
+
+</div>
+
+		</div>
+
+		<footer class="footer wrap-full" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+
+				<div id="inner-footer" class="wrap-max cf">
+
+					<ul class="social-links">
+
+	<li><a class="facebook" href="https://www.facebook.com" target="_blank"><svg class="scicon scicon-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scicon-facebook"></use></svg></a></li>
+
+	<li><a class="twitter" href="https://twitter.com" target="_blank"><svg class="scicon scicon-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scicon-twitter"></use></svg></a></li>
+
+	<li><a class="youtube" href="https://www.linkedin.com" target="_blank"><svg class="scicon scicon-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scicon-linkedin"></use></svg></a></li>
+
+</ul>
+
+					<nav role="navigation">
+											</nav>
+
+
+					<p class="source-org copyright">
+							&copy; 2020 Stanford Computation Imaging.	ALL RIGHTS RESERVED.
+					</p>
+
+					<div class="footer-logo" itemscope itemtype="http://schema.org/Organization"><a href="http://www.computationalimaging.org" rel="nofollow"><img src="http://www.computationalimaging.org/wp-content/themes/sci/library/images/sci-logo.svg" alt="SCI Logo" /></a></div>
+
+					<p class="design_by"><em>designed by</em> <span><a href="http://splitpeak.co"> SPLITPEAK</a></span></p>
+
+				</div>
+
+			</footer>
+
+				<script type='text/javascript' src='http://www.computationalimaging.org/wp-content/themes/sci/library/flexslider/jquery.flexslider-min.js' id='flexslider-js-js'></script>
+<script type='text/javascript' src='http://www.computationalimaging.org/wp-content/themes/sci/library/js/scripts.js' id='bones-js-js'></script>
+<script type='text/javascript' src='http://www.computationalimaging.org/wp-includes/js/wp-embed.min.js' id='wp-embed-js'></script>
+
+	</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64712130-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html> <!-- end of site. what a ride! -->
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+
+Served from: www.computationalimaging.org @ 2020-12-25 07:09:33 by W3 Total Cache
+-->
