@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <link href="https://khadjar.github.io/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://khadjar.github.io/" rel="alternate" type="text/html" />
+  <updated>2021-01-05T10:05:27-08:00</updated>
+  <id>https://khadjar.github.io/feed.xml</id>
+  <title type="html">Karim Hadjar</title>
+  <subtitle>Associate Professor Computer Science</subtitle>
+  <author>
+    <name>Karim Hadjar</name>
+    <email>karim.hadjar@insomea.tn</email>
+  </author>
+  <entry>
+  </entry>
+</feed>
